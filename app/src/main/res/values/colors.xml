@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="off_white_quente">#F4E6DE</color>
+    <color name="bege_acinzentado">#828181</color>
+    <color name="nude_rosado">#C7AA9B</color>
+
+    <color name="bege_dourado">#BFAF8F</color>
+    <color name="terracota_marrom">#734136</color>
+    <color name="marrom_cafe">#735246</color>
+
+    <color name="marrom_quase_preto">#2B2522</color>
+    <color name="sombra_elevacao">#3A332F"
+    </color>
+    <color name="off_white_premium">#F6F3EE</color>
+
+    <color name="verde_salvia">#6F8F84</color>
+    <color name="verde_profundo">#4E6B63</color>
+
+    <color name="dourado_envelhecido">#BC8750</color>
+    <color name="bronze_elegante">#9C7A5E</color>
+
+    <color name="background_claro">#FFFCF9</color>
+    <color name="bordas_suaves">#DDD6CA</color>
+    <color name="texto_secundario">#AFA79A</color>
 </resources>

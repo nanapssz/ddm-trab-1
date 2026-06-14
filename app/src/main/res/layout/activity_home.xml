@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/off_white_quente"
+    tools:context=".HomeActivity">
+
+    <ScrollView
+        android:id="@+id/scrollHome"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/menuInferior"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:paddingTop="18dp"
+            android:paddingBottom="16dp">
+
+            <!-- TOPO -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imgPerfil"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/fundo_circulo"
+                    android:contentDescription="@null"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_user"
+                    app:tint="@color/terracota_marrom" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Olá, Camila!"
+                        android:textColor="@color/terracota_marrom"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="O que você procura hoje?"
+                        android:textColor="@color/terracota_marrom"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/btnNotificacao"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_notification"
+                    app:tint="@color/terracota_marrom" />
+
+            </LinearLayout>
+
+            <!-- PESQUISA -->
+            <EditText
+                android:id="@+id/inputPesquisa"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/fundo_pesquisa"
+                android:drawableStart="@drawable/ic_search"
+                android:drawableEnd="@drawable/ic_microphone"
+                android:drawablePadding="10dp"
+                android:hint="Search"
+                android:inputType="text"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:textColor="@color/marrom_quase_preto"
+                android:textColorHint="@color/texto_secundario"
+                android:textSize="13sp" />
+
+            <!-- BANNER -->
+            <ImageView
+                android:id="@+id/imgBannerHome"
+                android:layout_width="match_parent"
+                android:layout_height="224dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/fundo_card"
+                android:clipToOutline="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:src="@drawable/banner_home" />
+
+            <!-- CATEGORIAS -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Explore categorias"
+                android:textColor="@color/marrom_quase_preto"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:background="@drawable/fundo_categoria_ativa"
+                        android:gravity="center"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:text="Tudo"
+                        android:textColor="@android:color/white"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:text="Skincare"
+                        android:textColor="@color/terracota_marrom"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:text="Make"
+                        android:textColor="@color/terracota_marrom"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:text="Cabelos"
+                        android:textColor="@color/terracota_marrom"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:text="Perfumes"
+                        android:textColor="@color/terracota_marrom"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <!-- DESTAQUES -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Destaques para você"
+                android:textColor="@color/marrom_quase_preto"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- PRODUTO 1 -->
+                    <LinearLayout
+                        android:layout_width="118dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="118dp"
+                            android:layout_height="118dp"
+                            android:background="@drawable/fundo_card">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@null"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/quad_produto_31_base_liquida_sheglam" />
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="top|end"
+                                android:layout_margin="8dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_heart"
+                                app:tint="@color/terracota_marrom" />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:maxLines="2"
+                            android:text="Base Líquida Acabamento Matte"
+                            android:textColor="@color/marrom_quase_preto"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="R$ 99,90"
+                            android:textColor="@color/dourado_envelhecido"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- PRODUTO 2 -->
+                    <LinearLayout
+                        android:layout_width="118dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="118dp"
+                            android:layout_height="118dp"
+                            android:background="@drawable/fundo_card">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@null"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/quad_produto_19_serum_facial_melu" />
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="top|end"
+                                android:layout_margin="8dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_heart"
+                                app:tint="@color/terracota_marrom" />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:maxLines="2"
+                            android:text="Sérum Facial Hidratante"
+                            android:textColor="@color/marrom_quase_preto"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="R$ 89,90"
+                            android:textColor="@color/dourado_envelhecido"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- PRODUTO 3 -->
+                    <LinearLayout
+                        android:layout_width="118dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="118dp"
+                            android:layout_height="118dp"
+                            android:background="@drawable/fundo_card">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@null"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/quad_produto_16_po_solto_nars" />
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="top|end"
+                                android:layout_margin="8dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_heart"
+                                app:tint="@color/terracota_marrom" />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:maxLines="2"
+                            android:text="Paleta de Sombras Nude Glam"
+                            android:textColor="@color/marrom_quase_preto"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="R$ 129,90"
+                            android:textColor="@color/dourado_envelhecido"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- PRODUTO 4 -->
+                    <LinearLayout
+                        android:layout_width="118dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="118dp"
+                            android:layout_height="118dp"
+                            android:background="@drawable/fundo_card">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@null"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/quad_produto_29_batom_maybelline_vinyl_ink" />
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="top|end"
+                                android:layout_margin="8dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_heart"
+                                app:tint="@color/terracota_marrom" />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:maxLines="2"
+                            android:text="Batom Matte Rose Elegance"
+                            android:textColor="@color/marrom_quase_preto"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="R$ 79,90"
+                            android:textColor="@color/dourado_envelhecido"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- PRODUTO 5 -->
+                    <LinearLayout
+                        android:layout_width="118dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="118dp"
+                            android:layout_height="118dp"
+                            android:background="@drawable/fundo_card">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@null"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/quad_produto_14_mascara_cilios_melu_rosa" />
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="top|end"
+                                android:layout_margin="8dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_heart"
+                                app:tint="@color/terracota_marrom" />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:maxLines="2"
+                            android:text="Máscara de Cílios Beleza"
+                            android:textColor="@color/marrom_quase_preto"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="R$ 59,90"
+                            android:textColor="@color/dourado_envelhecido"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- PRODUTO 6 -->
+                    <LinearLayout
+                        android:layout_width="118dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="118dp"
+                            android:layout_height="118dp"
+                            android:background="@drawable/fundo_card">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@null"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/quad_produto_01_corretivo_liquido_melu" />
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="top|end"
+                                android:layout_margin="8dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_heart"
+                                app:tint="@color/terracota_marrom" />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:maxLines="2"
+                            android:text="Corretivo Líquido Alta Cobertura"
+                            android:textColor="@color/marrom_quase_preto"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="R$ 59,90"
+                            android:textColor="@color/dourado_envelhecido"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- PRODUTO 7 -->
+                    <LinearLayout
+                        android:layout_width="118dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="118dp"
+                            android:layout_height="118dp"
+                            android:background="@drawable/fundo_card">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@null"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/quad_produto_12_perfume_chanel_coco_mademoiselle" />
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="top|end"
+                                android:layout_margin="8dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_heart"
+                                app:tint="@color/terracota_marrom" />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:maxLines="2"
+                            android:text="Perfume Coco Mademoiselle"
+                            android:textColor="@color/marrom_quase_preto"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="R$ 199,90"
+                            android:textColor="@color/dourado_envelhecido"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- PRODUTO 8 -->
+                    <LinearLayout
+                        android:layout_width="118dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="118dp"
+                            android:layout_height="118dp"
+                            android:background="@drawable/fundo_card">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@null"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/quad_produto_24_perfume_miss_dior" />
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="top|end"
+                                android:layout_margin="8dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_heart"
+                                app:tint="@color/terracota_marrom" />
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:maxLines="2"
+                            android:text="Perfume Miss Dior"
+                            android:textColor="@color/marrom_quase_preto"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="R$ 189,90"
+                            android:textColor="@color/dourado_envelhecido"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- MENU INFERIOR -->
+    <LinearLayout
+        android:id="@+id/menuInferior"
+        android:layout_width="0dp"
+        android:layout_height="62dp"
+        android:background="@color/off_white_quente"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_home"
+            app:tint="@color/dourado_envelhecido" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_heart"
+            app:tint="@color/texto_secundario" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_cart"
+            app:tint="@color/texto_secundario" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_user"
+            app:tint="@color/texto_secundario" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

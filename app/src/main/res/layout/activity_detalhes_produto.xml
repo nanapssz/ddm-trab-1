@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/off_white_quente"
+    tools:context=".DetalhesProdutoActivity">
+
+    <ScrollView
+        android:id="@+id/scrollDetalhes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/barraCompra"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp">
+
+            <!-- TOPO -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/btnVoltar"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_back"
+                    app:tint="@color/marrom_quase_preto" />
+
+                <TextView
+                    android:id="@+id/txtTituloTela"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Detalhes do produto"
+                    android:textAlignment="center"
+                    android:textColor="@color/marrom_quase_preto"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/btnCompartilhar"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_share"
+                    app:tint="@color/marrom_quase_preto" />
+
+            </LinearLayout>
+
+            <!-- IMAGEM DO PRODUTO -->
+            <FrameLayout
+                android:id="@+id/cardImagemProduto"
+                android:layout_width="match_parent"
+                android:layout_height="285dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/fundo_card">
+
+                <ImageView
+                    android:id="@+id/imgProdutoDetalhe"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ret_produto_29_batom_maybelline_vinyl_ink" />
+
+                <ImageView
+                    android:id="@+id/btnFavoritar"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="14dp"
+                    android:background="@drawable/fundo_circulo_claro"
+                    android:contentDescription="@null"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_heart"
+                    app:tint="@color/terracota_marrom" />
+
+            </FrameLayout>
+
+            <!-- NOME DO PRODUTO -->
+            <TextView
+                android:id="@+id/txtNomeProduto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Batom Matte Velvet Rose Elegance"
+                android:textColor="@color/marrom_quase_preto"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <!-- AVALIAÇÃO -->
+            <LinearLayout
+                android:id="@+id/containerAvaliacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtEstrelas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="★ ★ ★ ★ ☆"
+                    android:textColor="@color/dourado_envelhecido"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txtNota"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="4,0"
+                    android:textColor="@color/texto_secundario"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <!-- PREÇO -->
+            <TextView
+                android:id="@+id/txtPrecoProduto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="R$ 79,90"
+                android:textColor="@color/dourado_envelhecido"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- DESCRIÇÃO -->
+            <TextView
+                android:id="@+id/txtTituloDescricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Descrição"
+                android:textColor="@color/marrom_quase_preto"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtDescricaoProduto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="4dp"
+                android:text="Realce sua beleza com o Batom Matte Velvet Rose Elegance, um tom rosado sofisticado que combina elegância e modernidade em uma única aplicação. Sua fórmula de alta pigmentação proporciona cobertura uniforme desde a primeira camada, enquanto o acabamento matte aveludado oferece um visual refinado sem ressecar os lábios."
+                android:textColor="@color/marrom_cafe"
+                android:textSize="13sp" />
+
+            <!-- INFORMAÇÕES EXTRAS -->
+            <LinearLayout
+                android:id="@+id/containerInfoProduto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/fundo_card"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Informações do produto"
+                    android:textColor="@color/marrom_quase_preto"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Categoria: Maquiagem"
+                    android:textColor="@color/marrom_cafe"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Acabamento: Matte aveludado"
+                    android:textColor="@color/marrom_cafe"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Longa duração e alta pigmentação"
+                    android:textColor="@color/marrom_cafe"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- BARRA INFERIOR -->
+    <LinearLayout
+        android:id="@+id/barraCompra"
+        android:layout_width="0dp"
+        android:layout_height="78dp"
+        android:background="@color/off_white_quente"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- QUANTIDADE -->
+        <LinearLayout
+            android:id="@+id/containerQuantidade"
+            android:layout_width="108dp"
+            android:layout_height="38dp"
+            android:background="@drawable/fundo_quantidade"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btnMenos"
+                android:layout_width="36dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="−"
+                android:textColor="@color/marrom_quase_preto"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtQuantidade"
+                android:layout_width="36dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/marrom_quase_preto"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnMais"
+                android:layout_width="36dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="@color/marrom_quase_preto"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <!-- BOTÃO ADICIONAR -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAdicionarCarrinho"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="14dp"
+            android:layout_weight="1"
+            android:background="@drawable/fundo_botao_dourado"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp"
+            android:text="Adicionar ao carrinho"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
