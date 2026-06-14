@@ -105,8 +105,8 @@
                 android:background="@drawable/fundo_card"
                 android:clipToOutline="true"
                 android:contentDescription="@null"
-                android:scaleType="centerCrop"
-                android:src="@drawable/banner_home" />
+                android:scaleType="fitCenter"
+                android:src="@drawable/home_banner" />
 
             <!-- CATEGORIAS -->
             <TextView
