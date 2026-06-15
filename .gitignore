@@ -18,3 +18,4 @@ app/google-services.json
 *.db
 *.db-shm
 *.db-wal
+.idea/
