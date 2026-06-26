@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardProdutoCategoria"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@drawable/fundo_card_produto"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:paddingBottom="6dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/imgProduto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/off_white_quente"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/quad_produto_29_batom_maybelline_vinyl_ink" />
+
+        <ImageView
+            android:id="@+id/btnFavoritoProduto"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_gravity="top|end"
+            android:layout_margin="6dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_heart"
+            app:tint="@color/marrom_quase_preto" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/txtNomeProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="6dp"
+        android:maxLines="2"
+        android:minLines="2"
+        android:textColor="@color/marrom_quase_preto"
+        android:textSize="11sp"
+        tools:text="Batom Matte Rose Elegance" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="6dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtPrecoProduto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/dourado_envelhecido"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            tools:text="R$ 79,90" />
+
+        <TextView
+            android:id="@+id/txtNotaProduto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/bronze_elegante"
+            android:textSize="10sp"
+            tools:text="★ 4,5" />
+
+    </LinearLayout>
+
+</LinearLayout>

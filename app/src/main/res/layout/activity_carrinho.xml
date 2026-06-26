@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/off_white_quente"
+    tools:context=".CarrinhoActivity">
+
+    <ScrollView
+        android:id="@+id/scrollCarrinho"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/dividerMenuCarrinho"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="18dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btnVoltarCarrinho"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@null"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_back"
+                    app:tint="@color/marrom_quase_preto" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Meu carrinho"
+                    android:textColor="@color/marrom_quase_preto"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="34dp"
+                    android:layout_height="34dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cardItem1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/fundo_item_carrinho"
+                android:gravity="center_vertical"
+                android:minHeight="66dp"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgProduto1"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@color/off_white_quente"
+                    android:contentDescription="@null"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/quad_produto_01_corretivo_liquido_melu" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:text="Corretivo Líquido Alta Cobertura"
+                        android:textColor="@color/marrom_quase_preto"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="R$ 79,90"
+                        android:textColor="@color/bege_acinzentado"
+                        android:textSize="11sp"
+                        android:paintFlags="strikeThruText" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="R$ 59,90"
+                        android:textColor="@color/dourado_envelhecido"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnMenos1"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@drawable/fundo_qtd_carrinho"
+                        android:gravity="center"
+                        android:text="−"
+                        android:textColor="@color/marrom_quase_preto"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtQtd1"
+                        android:layout_width="18dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textColor="@color/marrom_quase_preto"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/btnMais1"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@drawable/fundo_qtd_carrinho"
+                        android:gravity="center"
+                        android:text="+"
+                        android:textColor="@color/marrom_quase_preto"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cardItem2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/fundo_item_carrinho"
+                android:gravity="center_vertical"
+                android:minHeight="66dp"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgProduto2"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@color/off_white_quente"
+                    android:contentDescription="@null"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/quad_produto_19_serum_facial_melu" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:text="Cleansing Oil Purifying Glow"
+                        android:textColor="@color/marrom_quase_preto"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="R$ 99,90"
+                        android:textColor="@color/bege_acinzentado"
+                        android:textSize="11sp"
+                        android:paintFlags="strikeThruText" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="R$ 79,90"
+                        android:textColor="@color/dourado_envelhecido"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnMenos2"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@drawable/fundo_qtd_carrinho"
+                        android:gravity="center"
+                        android:text="−"
+                        android:textColor="@color/marrom_quase_preto"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtQtd2"
+                        android:layout_width="18dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="@color/marrom_quase_preto"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/btnMais2"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@drawable/fundo_qtd_carrinho"
+                        android:gravity="center"
+                        android:text="+"
+                        android:textColor="@color/marrom_quase_preto"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cardItem3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/fundo_item_carrinho"
+                android:gravity="center_vertical"
+                android:minHeight="66dp"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgProduto3"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@color/off_white_quente"
+                    android:contentDescription="@null"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/quad_produto_29_batom_maybelline_vinyl_ink" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:text="Batom Matte Rose Elegance"
+                        android:textColor="@color/marrom_quase_preto"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="R$ 129,90"
+                        android:textColor="@color/bege_acinzentado"
+                        android:textSize="11sp"
+                        android:paintFlags="strikeThruText" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="R$ 79,90"
+                        android:textColor="@color/dourado_envelhecido"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnMenos3"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@drawable/fundo_qtd_carrinho"
+                        android:gravity="center"
+                        android:text="−"
+                        android:textColor="@color/marrom_quase_preto"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtQtd3"
+                        android:layout_width="18dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="@color/marrom_quase_preto"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/btnMais3"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:background="@drawable/fundo_qtd_carrinho"
+                        android:gravity="center"
+                        android:text="+"
+                        android:textColor="@color/marrom_quase_preto"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="Resumo da compra"
+                android:textColor="@color/marrom_quase_preto"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Produtos"
+                    android:textColor="@color/marrom_quase_preto"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/txtSubtotalProdutos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R$279,60"
+                    android:textColor="@color/marrom_quase_preto"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Entrega"
+                    android:textColor="@color/marrom_quase_preto"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/txtEntrega"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R$15,59"
+                    android:textColor="@color/marrom_quase_preto"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="14dp"
+                android:background="@color/bordas_suaves" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Total"
+                    android:textColor="@color/marrom_quase_preto"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R$295,19"
+                    android:textColor="@color/marrom_quase_preto"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtEscolherMais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="Escolher mais produtos"
+                android:textColor="@color/verde_salvia"
+                android:textSize="13sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnFinalizarCompra"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/fundo_botao_finalizar"
+                android:backgroundTint="@null"
+                android:text="Finalizar compra"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <View
+        android:id="@+id/dividerMenuCarrinho"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/bordas_suaves"
+        app:layout_constraintBottom_toTopOf="@id/menuInferiorCarrinho"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/menuInferiorCarrinho"
+        android:layout_width="0dp"
+        android:layout_height="62dp"
+        android:background="@color/off_white_quente"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/menuHomeCarrinho"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_home"
+            app:tint="@color/texto_secundario" />
+
+        <ImageView
+            android:id="@+id/menuFavoritosCarrinho"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_heart"
+            app:tint="@color/texto_secundario" />
+
+        <ImageView
+            android:id="@+id/menuCarrinhoAtivo"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_cart"
+            app:tint="@color/dourado_envelhecido" />
+
+        <ImageView
+            android:id="@+id/menuContaCarrinho"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_user"
+            app:tint="@color/texto_secundario" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,3 +8,5 @@ data class Produto(
     val urlImagem: String = "",
     val categoria: String = ""
 )
+
+

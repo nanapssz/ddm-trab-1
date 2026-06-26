@@ -9,8 +9,7 @@
     <color name="marrom_cafe">#735246</color>
 
     <color name="marrom_quase_preto">#2B2522</color>
-    <color name="sombra_elevacao">#3A332F"
-    </color>
+    <color name="sombra_elevacao">#3A332F</color>
     <color name="off_white_premium">#F6F3EE</color>
 
     <color name="verde_salvia">#6F8F84</color>
@@ -22,4 +21,11 @@
     <color name="background_claro">#FFFCF9</color>
     <color name="bordas_suaves">#DDD6CA</color>
     <color name="texto_secundario">#AFA79A</color>
+
+    <color name="conta_fundo_topo">#EFD6CC</color>
+    <color name="conta_fundo_card">#F8EEE8</color>
+    <color name="conta_input">#F8EEE8</color>
+    <color name="conta_borda_input">#DCCDC4</color>
+    <color name="conta_linha">#D8C7BD</color>
+    <color name="conta_texto_input">#8E8580</color>
 </resources>
