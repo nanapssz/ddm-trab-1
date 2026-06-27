@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.belleza.database.BancoDeDadosApp
 import com.example.belleza.databinding.ActivityCategoriaBinding
 import com.example.belleza.model.Produto
@@ -20,6 +21,7 @@ class CategoriaActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCategoriaBinding
     private lateinit var viewModel: LojaViewModel
+    private lateinit var adapter: ProdutoCategoriaAdapter
 
     private var categoriaAtual: String = CATEGORIA_TUDO
     private var produtosAtuais: List<Produto> = emptyList()
@@ -48,6 +50,7 @@ class CategoriaActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         iniciarViewModel()
+        configurarRecyclerView()
         configurarCliques()
         observarDados()
 
@@ -61,6 +64,27 @@ class CategoriaActivity : AppCompatActivity() {
         val factory = LojaViewModelFactory(repositorio)
 
         viewModel = ViewModelProvider(this, factory)[LojaViewModel::class.java]
+    }
+
+    private fun configurarRecyclerView() {
+        adapter = ProdutoCategoriaAdapter(
+            onProdutoClick = { produto ->
+                val intent = Intent(this, DetalhesProdutoActivity::class.java)
+                intent.putExtra("produto", produto)
+                startActivity(intent)
+            },
+            onFavoritoClick = { produto ->
+                viewModel.favoritarProduto(produto)
+                Toast.makeText(this, "${produto.titulo} salvo nos favoritos", Toast.LENGTH_SHORT).show()
+            },
+            onAdicionarCarrinhoClick = { produto ->
+                viewModel.adicionarAoCarrinho(produto)
+                Toast.makeText(this, "${produto.titulo} adicionado ao carrinho", Toast.LENGTH_SHORT).show()
+            }
+        )
+
+        binding.recyclerProdutosCategoria.layoutManager = GridLayoutManager(this, 3)
+        binding.recyclerProdutosCategoria.adapter = adapter
     }
 
     private fun configurarCliques() {
@@ -124,14 +148,7 @@ class CategoriaActivity : AppCompatActivity() {
                 else -> "${listaProdutos.size} produtos encontrados"
             }
 
-            /*
-             * Aqui depois entra o Adapter:
-             *
-             * adapter.atualizarLista(listaProdutos)
-             *
-             * Por enquanto, a tela já busca os produtos do banco,
-             * mas ainda não mostra no RecyclerView sem o Adapter.
-             */
+            adapter.atualizarLista(listaProdutos)
         }
 
         viewModel.estaCarregando.observe(this) { carregando ->
@@ -175,11 +192,7 @@ class CategoriaActivity : AppCompatActivity() {
             "Ordenar  ▴"
         }
 
-        /*
-         * Depois, com Adapter:
-         *
-         * adapter.atualizarLista(listaOrdenada)
-         */
+        adapter.atualizarLista(listaOrdenada)
     }
 
     private fun atualizarChipSelecionado(categoriaSelecionada: String) {
@@ -245,25 +258,7 @@ class CategoriaActivity : AppCompatActivity() {
         }
     }
 
-    private fun configurarRecyclerView() {
-        adapter = ProdutoCategoriaAdapter(
-            onProdutoClick = { produto ->
-                abrirDetalhesProduto(produto)
-            },
-            onFavoritoClick = { produto ->
-                viewModel.favoritarProduto(produto)
-                Toast.makeText(this, "Produto salvo nos favoritos", Toast.LENGTH_SHORT).show()
-            },
-            onAdicionarCarrinhoClick = { produto ->
-                viewModel.adicionarAoCarrinho(produto)
-                Toast.makeText(this, "Produto adicionado ao carrinho", Toast.LENGTH_SHORT).show()
-            }
-        )
-
-        binding.recyclerProdutosCategoria.layoutManager = GridLayoutManager(this, 3)
-        binding.recyclerProdutosCategoria.adapter = adapter
+    private fun abrirDetalhesProduto(produto: Produto) {
+        // Navegação para detalhes se necessário
     }
-
 }
-
-

@@ -101,8 +101,7 @@
                         android:layout_marginTop="4dp"
                         android:text="R$ 79,90"
                         android:textColor="@color/bege_acinzentado"
-                        android:textSize="11sp"
-                        android:paintFlags="strikeThruText" />
+                        android:textSize="11sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -197,8 +196,7 @@
                         android:layout_marginTop="4dp"
                         android:text="R$ 99,90"
                         android:textColor="@color/bege_acinzentado"
-                        android:textSize="11sp"
-                        android:paintFlags="strikeThruText" />
+                        android:textSize="11sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -293,8 +291,7 @@
                         android:layout_marginTop="4dp"
                         android:text="R$ 129,90"
                         android:textColor="@color/bege_acinzentado"
-                        android:textSize="11sp"
-                        android:paintFlags="strikeThruText" />
+                        android:textSize="11sp" />
 
                     <TextView
                         android:layout_width="wrap_content"

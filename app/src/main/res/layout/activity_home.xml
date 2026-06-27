@@ -52,9 +52,10 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/txtOlaUsuario"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Olá, Camila!"
+                        android:text="Olá!"
                         android:textColor="@color/terracota_marrom"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -209,266 +210,71 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp">
 
-                <!-- 1. VITRINE: TUDO (Mistura de produtos - Visível por padrão) -->
-                <HorizontalScrollView
-                    android:id="@+id/vitrineTudo"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvVitrineTudo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbars="none">
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_produto" />
 
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_31_base_liquida_sheglam" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Base Líquida Sheglam" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 99,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_19_serum_facial_melu" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Sérum Facial Melu" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 89,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_04_escova_massageadora_couro_cabeludo" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Escova Massageadora" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 39,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_12_perfume_chanel_coco_mademoiselle" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Coco Mademoiselle" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 899,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_11_gel_limpeza_bioderma_sensibio" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Gel Limpeza Bioderma" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 79,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </HorizontalScrollView>
-
-                <!-- 2. VITRINE: SKINCARE -->
-                <HorizontalScrollView
-                    android:id="@+id/vitrineSkincare"
+                <!-- VITRINES DAS CATEGORIAS (EM GRID 3 COLUNAS) -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvVitrineSkincare"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbars="none"
-                    android:visibility="gone">
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="3"
+                    tools:listitem="@layout/item_produto" />
 
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_11_gel_limpeza_bioderma_sensibio" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Gel Limpeza Bioderma" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 79,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_18_esfoliante_liquido_oceane" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Esfoliante Océane" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 65,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_19_serum_facial_melu" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Sérum Facial Melu" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 89,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_21_oleo_limpeza_skin1004_centella" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Óleo Limpeza Skin1004" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 145,00" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_23_oleo_limpeza_biore" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Óleo Limpeza Bioré" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 95,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </HorizontalScrollView>
-
-                <!-- 3. VITRINE: MAKE -->
-                <HorizontalScrollView
-                    android:id="@+id/vitrineMake"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvVitrineMake"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbars="none"
-                    android:visibility="gone">
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="3"
+                    tools:listitem="@layout/item_produto" />
 
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_16_po_solto_nars" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Pó Solto Nars" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 159,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_29_batom_maybelline_vinyl_ink" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Batom Vinyl Ink" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 89,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_17_delineador_dior" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Delineador Dior" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 189,00" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_25_blush_liquido_ysl" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Blush Líquido YSL" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 219,00" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_34_base_liquida_nars" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Base Líquida Nars" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 279,00" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </HorizontalScrollView>
-
-                <!-- 4. VITRINE: CABELOS -->
-                <HorizontalScrollView
-                    android:id="@+id/vitrineCabelos"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvVitrineCabelos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbars="none"
-                    android:visibility="gone">
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="3"
+                    tools:listitem="@layout/item_produto" />
 
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_06_kit_wella_invigo_sun" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Kit Wella Invigo" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 219,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_05_protetor_termico_kerastase" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Protetor Térmico Kérastase" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 189,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_07_shampoo_monday_smooth" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Shampoo Monday Smooth" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 69,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_08_kit_siage_acelera_crescimento" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Kit Eudora Siàge" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 119,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_09_oleo_loreal_absolut_repair" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Óleo L'Oréal Absolut" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 135,00" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </HorizontalScrollView>
-
-                <!-- 5. VITRINE: PERFUMES -->
-                <HorizontalScrollView
-                    android:id="@+id/vitrinePerfumes"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvVitrinePerfumes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbars="none"
-                    android:visibility="gone">
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_12_perfume_chanel_coco_mademoiselle" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Coco Mademoiselle" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 899,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_24_perfume_miss_dior" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Perfume Miss Dior" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 759,00" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_13_perfume_valentino" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Perfume Valentino" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 680,00" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_35_perfume_versace_eros" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Versace Eros" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 549,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_37_perfume_prada_milano" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Prada Milano" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 710,00" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </HorizontalScrollView>
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="3"
+                    tools:listitem="@layout/item_produto" />
 
             </FrameLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnVerMaisCategorias"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/fundo_botao_marrom"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:text="Ver mais"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:visibility="gone" />
 
             <!-- ================= VITRINES EXTRAS (SÓ APARECEM EM "TUDO") ================= -->
             <LinearLayout
@@ -487,56 +293,14 @@
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
-                <!-- VITRINE: MAIS VENDIDOS -->
-                <HorizontalScrollView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMaisVendidos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:scrollbars="none">
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_13_perfume_valentino" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Perfume Valentino" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 680,00" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_08_kit_siage_acelera_crescimento" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Kit Eudora Siàge" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 119,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_22_oleo_limpeza_rubyskin" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Óleo Limpeza Ruby Skin" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 45,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_26_batom_liquido_obsidian_ruby_rose" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Batom Obsidian Ruby Rose" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 29,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_35_perfume_versace_eros" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Perfume Versace Eros" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 549,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </HorizontalScrollView>
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_produto" />
 
                 <!-- TÍTULO: NOVIDADES -->
                 <TextView
@@ -548,56 +312,14 @@
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
-                <!-- VITRINE: NOVIDADES -->
-                <HorizontalScrollView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvNovidades"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:scrollbars="none">
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_27_batom_liquido_franciny_ehlke" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Batom Franciny Ehlke" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 49,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_21_oleo_limpeza_skin1004_centella" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Óleo Limpeza Skin1004" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 145,00" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_05_protetor_termico_kerastase" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Protetor Térmico Kérastase" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 189,90" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_32_base_liquida_mascavo" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Base Líquida Mascavo" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 115,00" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="118dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp" android:orientation="vertical">
-                            <FrameLayout android:layout_width="118dp" android:layout_height="118dp" android:background="@drawable/fundo_card">
-                                <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@drawable/quad_produto_38_perfume_chanel_coco_noir" />
-                            </FrameLayout>
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="2" android:text="Chanel Coco Noir" android:textColor="@color/marrom_quase_preto" android:textSize="10sp" />
-                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="R$ 950,00" android:textColor="@color/dourado_envelhecido" android:textSize="12sp" android:textStyle="bold" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </HorizontalScrollView>
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_produto" />
 
             </LinearLayout>
 
