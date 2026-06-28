@@ -1,9 +1,10 @@
-package com.example.belleza
+package com.example.belleza.ui
 
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.belleza.R
 import com.example.belleza.database.BancoDeDadosApp
 import com.example.belleza.model.CarrinhoItem
 import com.example.belleza.repository.LojaRepository

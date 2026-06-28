@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="12dp"
+    android:layout_margin="4dp"
     android:orientation="vertical">
 
     <FrameLayout
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
         android:background="@drawable/fundo_card">
 
         <ImageView
@@ -19,32 +19,33 @@
 
         <ImageButton
             android:id="@+id/btnFavoritoItem"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_gravity="top|end"
-            android:layout_margin="8dp"
+            android:layout_margin="4dp"
             android:background="@drawable/fundo_circulo_claro"
-            android:padding="5dp"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/ic_heart_border"
             app:tint="@color/terracota_marrom" />
     </FrameLayout>
 
     <TextView
         android:id="@+id/txtNomeProdutoItem"
-        android:layout_width="140dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:ellipsize="end"
         android:maxLines="1"
         android:textColor="@color/marrom_quase_preto"
-        android:textSize="13sp" />
+        android:textSize="11sp" />
 
     <TextView
         android:id="@+id/txtPrecoProdutoItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/dourado_envelhecido"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:textStyle="bold" />
 
 </LinearLayout>

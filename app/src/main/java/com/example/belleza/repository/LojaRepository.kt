@@ -16,12 +16,13 @@ class LojaRepository(private val favoritoDao: FavoritoDao) {
 
     suspend fun obterTodosProdutos(): List<Produto> {
         return try {
-            val snapshot = firestore
-                .collection("produtos")
-                .get()
-                .await()
+            val snapshot = firestore.collection("produtos").get().await()
 
-            snapshot.toObjects(Produto::class.java)
+            snapshot.documents.mapNotNull { doc ->
+                val produto = doc.toObject(Produto::class.java)
+                // IMPORTANTE: O id do objeto produto deve receber o id do documento do Firebase
+                produto?.copy(id = doc.id)
+            }
         } catch (e: Exception) {
             emptyList()
         }
@@ -146,25 +147,27 @@ class LojaRepository(private val favoritoDao: FavoritoDao) {
             false
         }
     }
-
     suspend fun salvarFavoritoLocalmente(produto: Produto) {
         val uid = auth.currentUser?.uid ?: "usuario_deslogado"
-
-        val favorito = FavoritoEntity(
-            idProduto = produto.id,
-            titulo = produto.titulo,
-            preco = produto.preco,
-            urlImagem = produto.urlImagem,
-            idUsuario = uid
-        )
-
+        val favorito = FavoritoEntity(produto.id, produto.titulo, produto.preco, produto.urlImagem, uid)
         favoritoDao.inserirFavorito(favorito)
+    }
+    suspend fun verificarSeEhFavorito(idProduto: String): Boolean {
+        val uid = auth.currentUser?.uid ?: "usuario_deslogado"
+        val favoritos = favoritoDao.obterFavoritosDoUsuario(uid)
+        return favoritos.any { it.idProduto == idProduto }
+    }
+
+    suspend fun removerFavoritoLocalmente(idProduto: String) {
+        val uid = auth.currentUser?.uid ?: "usuario_deslogado"
+        favoritoDao.deletarFavorito(idProduto, uid)
     }
 
     suspend fun obterFavoritosLocais(): List<FavoritoEntity> {
         val uid = auth.currentUser?.uid ?: "usuario_deslogado"
         return favoritoDao.obterFavoritosDoUsuario(uid)
     }
+
 
     suspend fun salvarPerfilUsuario(usuario: Usuario): Boolean {
         val uid = auth.currentUser?.uid ?: return false

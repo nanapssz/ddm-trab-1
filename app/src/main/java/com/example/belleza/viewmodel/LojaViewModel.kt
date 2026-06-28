@@ -91,15 +91,33 @@ class LojaViewModel(private val repositorio: LojaRepository) : ViewModel() {
         }
     }
 
+
     fun carregarFavoritos() {
+        viewModelScope.launch { _favoritos.value = repositorio.obterFavoritosLocais() }
+    }
+
+    fun alternarFavorito(produto: Produto) {
         viewModelScope.launch {
-            _favoritos.value = repositorio.obterFavoritosLocais()
+            val jaEh = repositorio.verificarSeEhFavorito(produto.id)
+            if (jaEh) {
+                repositorio.removerFavoritoLocalmente(produto.id)
+            } else {
+                repositorio.salvarFavoritoLocalmente(produto)
+            }
+            carregarFavoritos()
         }
     }
 
+
     fun favoritarProduto(produto: Produto) {
         viewModelScope.launch {
-            repositorio.salvarFavoritoLocalmente(produto)
+            val jaEhFavorito = repositorio.verificarSeEhFavorito(produto.id)
+
+            if (jaEhFavorito) {
+                repositorio.removerFavoritoLocalmente(produto.id)
+            } else {
+                repositorio.salvarFavoritoLocalmente(produto)
+            }
             carregarFavoritos()
         }
     }

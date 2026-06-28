@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/conta_fundo_topo"
-    tools:context=".MinhaContaActivity">
+    tools:context=".ui.MinhaContaActivity">
 
     <ScrollView
         android:id="@+id/scrollMinhaConta"
@@ -84,19 +84,35 @@
                     android:orientation="horizontal">
 
                     <FrameLayout
+                        android:id="@+id/btnTrocarFoto"
                         android:layout_width="52dp"
                         android:layout_height="52dp"
-                        android:background="@drawable/fundo_avatar_conta">
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/fundo_avatar_conta">
+
+                            <ImageView
+                                android:id="@+id/imgPerfilConta"
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
+                                android:layout_gravity="center"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_user"
+                                app:tint="@color/verde_profundo" />
+                        </FrameLayout>
 
                         <ImageView
-                            android:id="@+id/imgPerfilConta"
-                            android:layout_width="34dp"
-                            android:layout_height="34dp"
-                            android:layout_gravity="center"
-                            android:contentDescription="@null"
-                            android:src="@drawable/ic_user"
-                            app:tint="@color/verde_profundo" />
-
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="bottom|end"
+                            android:background="@drawable/fundo_circulo_claro"
+                            android:padding="3dp"
+                            android:src="@drawable/ic_edit"
+                            app:tint="@color/terracota_marrom" />
                     </FrameLayout>
 
                     <LinearLayout
@@ -113,7 +129,7 @@
                             android:textColor="@color/marrom_quase_preto"
                             android:textSize="13sp"
                             android:textStyle="bold"
-                            tools:text="Camila Souza" />
+                            tools:text="Nome do Usuário" />
 
                         <TextView
                             android:id="@+id/txtEmailUsuario"
@@ -123,10 +139,8 @@
                             android:includeFontPadding="false"
                             android:textColor="@color/bege_acinzentado"
                             android:textSize="10sp"
-                            tools:text="camila.souza@email.com" />
-
+                            tools:text="usuario@email.com" />
                     </LinearLayout>
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -595,7 +609,7 @@
             android:layout_height="24dp"
             android:layout_weight="1"
             android:contentDescription="@null"
-            android:src="@drawable/ic_heart"
+            android:src="@drawable/ic_heart_border"
             app:tint="@color/texto_secundario" />
 
         <ImageView

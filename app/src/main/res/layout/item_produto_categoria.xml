@@ -34,7 +34,7 @@
             android:layout_gravity="top|end"
             android:layout_margin="6dp"
             android:contentDescription="@null"
-            android:src="@drawable/ic_heart"
+            android:src="@drawable/ic_heart_border"
             app:tint="@color/marrom_quase_preto" />
 
     </FrameLayout>

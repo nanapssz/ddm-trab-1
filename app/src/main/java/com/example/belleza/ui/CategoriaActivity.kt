@@ -1,4 +1,4 @@
-package com.example.belleza
+package com.example.belleza.ui
 
 import android.content.Intent
 import android.graphics.Color
@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.belleza.R
 import com.example.belleza.database.BancoDeDadosApp
 import com.example.belleza.databinding.ActivityCategoriaBinding
 import com.example.belleza.model.Produto

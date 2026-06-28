@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/off_white_quente"
-    tools:context=".CarrinhoActivity">
+    tools:context=".ui.CarrinhoActivity">
 
     <ScrollView
         android:id="@+id/scrollCarrinho"
@@ -495,7 +495,7 @@
             android:layout_height="24dp"
             android:layout_weight="1"
             android:contentDescription="@null"
-            android:src="@drawable/ic_heart"
+            android:src="@drawable/ic_heart_border"
             app:tint="@color/texto_secundario" />
 
         <ImageView

@@ -1,5 +1,4 @@
 package com.example.belleza.model
-
 data class Usuario(
     val id: String = "",
     val nome: String = "",
@@ -14,5 +13,5 @@ data class Usuario(
     val endereco: String = "",
     val bairro: String = "",
     val complemento: String = "",
-    val urlFotoPerfil: String = ""
+    val fotoUrl: String = ""
 )

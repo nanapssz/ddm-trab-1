@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/off_white_quente"
-    tools:context=".HomeActivity">
+    tools:context=".ui.HomeActivity">
 
     <ScrollView
         android:id="@+id/scrollHome"
@@ -35,14 +35,11 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imgPerfil"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/fundo_circulo"
-                    android:contentDescription="@null"
-                    android:padding="6dp"
+                    android:id="@+id/imgPerfilHome"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     android:src="@drawable/ic_user"
-                    app:tint="@color/terracota_marrom" />
+                    android:scaleType="centerCrop" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -204,7 +201,6 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <!-- ================= ÁREA DAS PRATELEIRAS (VITRINES) ================= -->
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -218,7 +214,6 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/item_produto" />
 
-                <!-- VITRINES DAS CATEGORIAS (EM GRID 3 COLUNAS) -->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvVitrineSkincare"
                     android:layout_width="match_parent"
@@ -276,14 +271,12 @@
                 android:textSize="12sp"
                 android:visibility="gone" />
 
-            <!-- ================= VITRINES EXTRAS (SÓ APARECEM EM "TUDO") ================= -->
             <LinearLayout
                 android:id="@+id/containerExtrasTudo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- TÍTULO: MAIS VENDIDOS -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -302,7 +295,6 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/item_produto" />
 
-                <!-- TÍTULO: NOVIDADES -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -327,6 +319,16 @@
     </ScrollView>
 
     <!-- MENU INFERIOR -->
+    <View
+        android:id="@+id/dividerMenuCarrinho"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/bordas_suaves"
+        app:layout_constraintBottom_toTopOf="@id/menuInferior"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- MENU INFERIOR -->
     <LinearLayout
         android:id="@+id/menuInferior"
         android:layout_width="0dp"
@@ -339,22 +341,25 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
+            android:id="@+id/menuHomeCategoria"
             android:layout_width="0dp"
             android:layout_height="24dp"
             android:layout_weight="1"
             android:contentDescription="@null"
             android:src="@drawable/ic_home"
-            app:tint="@color/dourado_envelhecido" />
+            app:tint="@color/terracota_marrom" />
 
         <ImageView
+            android:id="@+id/menuFavoritosCategoria"
             android:layout_width="0dp"
             android:layout_height="24dp"
             android:layout_weight="1"
             android:contentDescription="@null"
-            android:src="@drawable/ic_heart"
+            android:src="@drawable/ic_heart_border"
             app:tint="@color/texto_secundario" />
 
         <ImageView
+            android:id="@+id/menuCarrinhoCategoria"
             android:layout_width="0dp"
             android:layout_height="24dp"
             android:layout_weight="1"
@@ -363,6 +368,7 @@
             app:tint="@color/texto_secundario" />
 
         <ImageView
+            android:id="@+id/menuContaCategoria"
             android:layout_width="0dp"
             android:layout_height="24dp"
             android:layout_weight="1"
