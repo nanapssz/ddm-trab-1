@@ -121,22 +121,41 @@ class CategoriaActivity : AppCompatActivity() {
             Toast.makeText(this, "Filtro em desenvolvimento", Toast.LENGTH_SHORT).show()
         }
 
-        binding.menuHomeCategoria.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
-            finish()
+        binding.bottomNavigationCategoria.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra(MainActivity.EXTRA_ABA, MainActivity.ABA_HOME)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+
+                R.id.nav_favoritos -> {
+                    Toast.makeText(this, "Favoritos em desenvolvimento", Toast.LENGTH_SHORT).show()
+                    false
+                }
+
+                R.id.nav_carrinho -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra(MainActivity.EXTRA_ABA, MainActivity.ABA_CARRINHO)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+
+                R.id.nav_conta -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra(MainActivity.EXTRA_ABA, MainActivity.ABA_CONTA)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+
+                else -> false
+            }
         }
 
-        binding.menuCarrinhoCategoria.setOnClickListener {
-            abrirTelaSeExistir("CarrinhoActivity")
-        }
-
-        binding.menuContaCategoria.setOnClickListener {
-            abrirTelaSeExistir("MinhaContaActivity")
-        }
-
-        binding.menuFavoritosCategoria.setOnClickListener {
-            Toast.makeText(this, "Tela de favoritos em desenvolvimento", Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun observarDados() {
@@ -259,7 +278,4 @@ class CategoriaActivity : AppCompatActivity() {
         }
     }
 
-    private fun abrirDetalhesProduto(produto: Produto) {
-        // Navegação para detalhes se necessário
-    }
 }

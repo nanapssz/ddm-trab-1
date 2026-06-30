@@ -2,34 +2,42 @@ package com.example.belleza.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.belleza.adapter.CarrinhoAdapter
 import com.example.belleza.database.BancoDeDadosApp
-import com.example.belleza.databinding.ActivityCarrinhoBinding
+import com.example.belleza.databinding.FragmentCarrinhoBinding
 import com.example.belleza.model.CarrinhoItem
 import com.example.belleza.repository.LojaRepository
 import com.example.belleza.viewmodel.LojaViewModel
 import com.example.belleza.viewmodel.LojaViewModelFactory
 import java.util.Locale
 
-class CarrinhoActivity : AppCompatActivity() {
+class CarrinhoFragment : Fragment() {
 
-    private lateinit var binding: ActivityCarrinhoBinding
+    private var _binding: FragmentCarrinhoBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var viewModel: LojaViewModel
     private lateinit var adapter: CarrinhoAdapter
 
     private val valorEntrega = 15.59
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentCarrinhoBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        binding = ActivityCarrinhoBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         iniciarViewModel()
         configurarRecyclerView()
         configurarCliques()
@@ -44,8 +52,8 @@ class CarrinhoActivity : AppCompatActivity() {
     }
 
     private fun iniciarViewModel() {
-        val banco = BancoDeDadosApp.obterBancoDeDados(this)
-        val repositorio = LojaRepository(banco.favoritoDao(), applicationContext)
+        val banco = BancoDeDadosApp.obterBancoDeDados(requireContext())
+        val repositorio = LojaRepository(banco.favoritoDao(), requireContext().applicationContext)
         val factory = LojaViewModelFactory(repositorio)
 
         viewModel = ViewModelProvider(this, factory)[LojaViewModel::class.java]
@@ -67,51 +75,32 @@ class CarrinhoActivity : AppCompatActivity() {
             }
         )
 
-        binding.recyclerCarrinho.layoutManager = LinearLayoutManager(this)
+        binding.recyclerCarrinho.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerCarrinho.adapter = adapter
     }
 
     private fun configurarCliques() {
-        binding.btnVoltarCarrinho.setOnClickListener {
-            finish()
-        }
+        binding.btnVoltarCarrinho.visibility = View.GONE
 
         binding.txtEscolherMais.setOnClickListener {
-            startActivity(Intent(this, CategoriaActivity::class.java))
+            startActivity(Intent(requireContext(), CategoriaActivity::class.java))
         }
 
         binding.btnFinalizarCompra.setOnClickListener {
-            Toast.makeText(this, "Finalização em desenvolvimento", Toast.LENGTH_SHORT).show()
-        }
-
-        binding.menuHomeCarrinho.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
-            finish()
-        }
-
-        binding.menuContaCarrinho.setOnClickListener {
-            startActivity(Intent(this, MinhaContaActivity::class.java))
-        }
-
-        binding.menuCarrinhoAtivo.setOnClickListener {
-            binding.scrollCarrinho.smoothScrollTo(0, 0)
-        }
-
-        binding.menuFavoritosCarrinho.setOnClickListener {
-            Toast.makeText(this, "Favoritos em desenvolvimento", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Finalização em desenvolvimento", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun observarDados() {
-        viewModel.carrinho.observe(this) { itens ->
+        viewModel.carrinho.observe(viewLifecycleOwner) { itens ->
             adapter.atualizarLista(itens)
             atualizarResumo(itens)
             atualizarEstadoVazio(itens)
         }
 
-        viewModel.statusOperacao.observe(this) { sucesso ->
+        viewModel.statusOperacao.observe(viewLifecycleOwner) { sucesso ->
             if (!sucesso) {
-                Toast.makeText(this, "Não foi possível atualizar o carrinho", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Não foi possível atualizar o carrinho", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -141,5 +130,10 @@ class CarrinhoActivity : AppCompatActivity() {
 
     private fun formatarPreco(valor: Double): String {
         return String.format(Locale("pt", "BR"), "R$ %.2f", valor)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -55,7 +55,6 @@ class ProdutoAdapter(
             holder.btnCoracao.setColorFilter(Color.GRAY)
         }
 
-        // Cliques
         holder.itemView.setOnClickListener { onClick(produto) }
         holder.btnCoracao.setOnClickListener { onFavoritoClick(produto) }
     }

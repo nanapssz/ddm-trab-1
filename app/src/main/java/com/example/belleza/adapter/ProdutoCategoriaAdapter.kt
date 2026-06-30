@@ -23,7 +23,6 @@ class ProdutoCategoriaAdapter(
             binding.txtNomeProduto.text = produto.titulo
             binding.txtPrecoProduto.text = formatarPreco(produto.preco)
 
-            // Caso vocês ainda não tenham campo de nota no banco
             binding.txtNotaProduto.text = "★ 4,5"
 
             Glide.with(binding.imgProduto.context)
