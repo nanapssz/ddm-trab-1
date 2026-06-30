@@ -1,37 +1,41 @@
 package com.example.belleza.ui
 
+import android.Manifest
 import android.app.AlertDialog
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.util.Base64
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.belleza.R
 import com.example.belleza.database.BancoDeDadosApp
-import com.example.belleza.databinding.ActivityMinhaContaBinding
+import com.example.belleza.databinding.FragmentMinhaContaBinding
 import com.example.belleza.model.Usuario
 import com.example.belleza.repository.LojaRepository
 import com.example.belleza.viewmodel.LojaViewModel
 import com.example.belleza.viewmodel.LojaViewModelFactory
 import java.io.File
-import android.Manifest
-import android.content.pm.PackageManager
-import androidx.core.content.ContextCompat
-import android.graphics.BitmapFactory
-import android.util.Base64
 
-class MinhaContaActivity : AppCompatActivity() {
+class MinhaContaFragment : Fragment() {
 
-    private lateinit var binding: ActivityMinhaContaBinding
+    private var _binding: FragmentMinhaContaBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var viewModel: LojaViewModel
 
     private var fotoUriCamera: Uri? = null
-    private var fotoUrlAtual: String = ""
 
     private val cameraLauncher = registerForActivityResult(
         ActivityResultContracts.TakePicture()
@@ -42,7 +46,7 @@ class MinhaContaActivity : AppCompatActivity() {
                 viewModel.atualizarFotoPerfil(uri)
             }
         } else {
-            Toast.makeText(this, "Foto cancelada", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Foto cancelada", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -52,11 +56,7 @@ class MinhaContaActivity : AppCompatActivity() {
         if (permissaoConcedida) {
             abrirCameraComPermissao()
         } else {
-            Toast.makeText(
-                this,
-                "Permissão da câmera negada",
-                Toast.LENGTH_SHORT
-            ).show()
+            Toast.makeText(requireContext(), "Permissão da câmera negada", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -69,12 +69,16 @@ class MinhaContaActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentMinhaContaBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        binding = ActivityMinhaContaBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         iniciarViewModel()
         configurarCliques()
         observarDados()
@@ -83,17 +87,15 @@ class MinhaContaActivity : AppCompatActivity() {
     }
 
     private fun iniciarViewModel() {
-        val banco = BancoDeDadosApp.obterBancoDeDados(this)
-        val repositorio = LojaRepository(banco.favoritoDao(), applicationContext)
+        val banco = BancoDeDadosApp.obterBancoDeDados(requireContext())
+        val repositorio = LojaRepository(banco.favoritoDao(), requireContext().applicationContext)
         val factory = LojaViewModelFactory(repositorio)
 
         viewModel = ViewModelProvider(this, factory)[LojaViewModel::class.java]
     }
 
     private fun configurarCliques() {
-        binding.btnVoltarConta.setOnClickListener {
-            finish()
-        }
+        binding.btnVoltarConta.visibility = View.GONE
 
         binding.btnTrocarFoto.setOnClickListener {
             mostrarDialogoFoto()
@@ -103,40 +105,27 @@ class MinhaContaActivity : AppCompatActivity() {
             salvarPerfil()
         }
 
-        binding.menuHomeConta.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
-            finish()
-        }
-
-        binding.menuCarrinhoConta.setOnClickListener {
-            startActivity(Intent(this, CarrinhoActivity::class.java))
-        }
-
-        binding.menuUsuarioConta.setOnClickListener {
-            binding.scrollMinhaConta.smoothScrollTo(0, 0)
-        }
-
-        binding.menuFavoritosConta.setOnClickListener {
-            Toast.makeText(this, "Favoritos em desenvolvimento", Toast.LENGTH_SHORT).show()
+        binding.btnConfiguracoesConta.setOnClickListener {
+            Toast.makeText(requireContext(), "Configurações em desenvolvimento", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun observarDados() {
-        viewModel.perfilUsuario.observe(this) { usuario ->
+        viewModel.perfilUsuario.observe(viewLifecycleOwner) { usuario ->
             usuario?.let {
                 preencherTela(it)
             }
         }
 
-        viewModel.mensagemOperacao.observe(this) { mensagem ->
-            Toast.makeText(this, mensagem, Toast.LENGTH_LONG).show()
+        viewModel.mensagemOperacao.observe(viewLifecycleOwner) { mensagem ->
+            Toast.makeText(requireContext(), mensagem, Toast.LENGTH_LONG).show()
         }
     }
 
     private fun mostrarDialogoFoto() {
         val opcoes = arrayOf("Tirar foto", "Escolher da galeria")
 
-        AlertDialog.Builder(this)
+        AlertDialog.Builder(requireContext())
             .setTitle("Alterar foto de perfil")
             .setItems(opcoes) { _, opcao ->
                 when (opcao) {
@@ -149,7 +138,7 @@ class MinhaContaActivity : AppCompatActivity() {
 
     private fun abrirCamera() {
         val permissao = ContextCompat.checkSelfPermission(
-            this,
+            requireContext(),
             Manifest.permission.CAMERA
         )
 
@@ -165,12 +154,12 @@ class MinhaContaActivity : AppCompatActivity() {
             val arquivoFoto = File.createTempFile(
                 "foto_perfil_${System.currentTimeMillis()}",
                 ".jpg",
-                cacheDir
+                requireContext().cacheDir
             )
 
             val uri = FileProvider.getUriForFile(
-                this,
-                "${applicationContext.packageName}.fileprovider",
+                requireContext(),
+                "${requireContext().packageName}.fileprovider",
                 arquivoFoto
             )
 
@@ -179,7 +168,7 @@ class MinhaContaActivity : AppCompatActivity() {
 
         } catch (e: Exception) {
             Toast.makeText(
-                this,
+                requireContext(),
                 "Erro ao abrir a câmera: ${e.message}",
                 Toast.LENGTH_LONG
             ).show()
@@ -206,8 +195,6 @@ class MinhaContaActivity : AppCompatActivity() {
     }
 
     private fun preencherTela(usuario: Usuario) {
-        fotoUrlAtual = usuario.fotoUrl
-
         binding.txtNomeUsuario.text = usuario.nome
         binding.txtEmailUsuario.text = usuario.email
 
@@ -233,6 +220,7 @@ class MinhaContaActivity : AppCompatActivity() {
                 .error(R.drawable.ic_user)
                 .circleCrop()
                 .into(binding.imgPerfilConta)
+
         } else if (usuario.fotoUrl.isNotEmpty()) {
             Glide.with(this)
                 .load(usuario.fotoUrl)
@@ -240,6 +228,7 @@ class MinhaContaActivity : AppCompatActivity() {
                 .error(R.drawable.ic_user)
                 .circleCrop()
                 .into(binding.imgPerfilConta)
+
         } else {
             binding.imgPerfilConta.setImageResource(R.drawable.ic_user)
         }
@@ -264,5 +253,10 @@ class MinhaContaActivity : AppCompatActivity() {
         )
 
         viewModel.salvarPerfil(usuario)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

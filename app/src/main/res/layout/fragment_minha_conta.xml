@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/conta_fundo_topo"
-    tools:context=".ui.MinhaContaActivity">
+    tools:context=".ui.MinhaContaFragment">
 
     <ScrollView
         android:id="@+id/scrollMinhaConta"
@@ -15,10 +15,10 @@
         android:layout_height="0dp"
         android:fillViewport="true"
         android:scrollbars="none"
-        app:layout_constraintBottom_toTopOf="@id/menuInferiorConta"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -573,54 +573,5 @@
         </LinearLayout>
 
     </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/menuInferiorConta"
-        android:layout_width="0dp"
-        android:layout_height="62dp"
-        android:background="@color/off_white_quente"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:id="@+id/menuHomeConta"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_weight="1"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_home"
-            app:tint="@color/texto_secundario" />
-
-        <ImageView
-            android:id="@+id/menuFavoritosConta"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_weight="1"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_heart_border"
-            app:tint="@color/texto_secundario" />
-
-        <ImageView
-            android:id="@+id/menuCarrinhoConta"
-            android:layout_width="0dp"
-            android:layout_height="26dp"
-            android:layout_weight="1"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_cart"
-            app:tint="@color/texto_secundario" />
-
-        <ImageView
-            android:id="@+id/menuUsuarioConta"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_weight="1"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_user"
-            app:tint="@color/dourado_envelhecido" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

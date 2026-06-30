@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/off_white_quente"
-    tools:context=".ui.CarrinhoActivity">
+    tools:context=".ui.CarrinhoFragment">
 
     <ScrollView
         android:id="@+id/scrollCarrinho"
@@ -16,7 +16,7 @@
         android:fillViewport="true"
         android:scrollbars="none"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/dividerMenuCarrinho"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -201,62 +201,5 @@
 
     </ScrollView>
 
-    <View
-        android:id="@+id/dividerMenuCarrinho"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="@color/bordas_suaves"
-        app:layout_constraintBottom_toTopOf="@id/menuInferiorCarrinho"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/menuInferiorCarrinho"
-        android:layout_width="0dp"
-        android:layout_height="62dp"
-        android:background="@color/off_white_quente"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <ImageView
-            android:id="@+id/menuHomeCarrinho"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_weight="1"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_home"
-            app:tint="@color/texto_secundario" />
-
-        <ImageView
-            android:id="@+id/menuFavoritosCarrinho"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_weight="1"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_heart_border"
-            app:tint="@color/texto_secundario" />
-
-        <ImageView
-            android:id="@+id/menuCarrinhoAtivo"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_weight="1"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_cart"
-            app:tint="@color/dourado_envelhecido" />
-
-        <ImageView
-            android:id="@+id/menuContaCarrinho"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_weight="1"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_user"
-            app:tint="@color/texto_secundario" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

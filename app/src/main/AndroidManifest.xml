@@ -48,9 +48,6 @@
 
         </activity>
 
-        <activity
-            android:name=".ui.HomeActivity"
-            android:exported="false" />
 
         <activity
             android:name=".ui.CategoriaActivity"
@@ -60,13 +57,6 @@
             android:name=".ui.DetalhesProdutoActivity"
             android:exported="false" />
 
-        <activity
-            android:name=".ui.CarrinhoActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.MinhaContaActivity"
-            android:exported="false" />
 
         <activity
             android:name=".ui.MainActivity"

@@ -9,7 +9,6 @@
     android:background="@color/off_white_quente"
     tools:context=".ui.CategoriaActivity">
 
-    <!-- TOPO -->
     <LinearLayout
         android:id="@+id/topoCategoria"
         android:layout_width="0dp"
@@ -23,7 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- BARRA SUPERIOR -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="42dp"
@@ -63,7 +61,6 @@
 
         </LinearLayout>
 
-        <!-- CATEGORIAS FIXAS DO APP -->
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -143,7 +140,6 @@
 
         </HorizontalScrollView>
 
-        <!-- QUANTIDADE E ORDENAR -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -172,7 +168,6 @@
 
     </LinearLayout>
 
-    <!-- LISTA DE PRODUTOS -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerProdutosCategoria"
         android:layout_width="0dp"
@@ -193,58 +188,22 @@
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="@color/bordas_suaves"
-        app:layout_constraintBottom_toTopOf="@id/menuInferiorCategoria"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationCategoria"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- MENU INFERIOR -->
-    <LinearLayout
-        android:id="@+id/menuInferiorCategoria"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationCategoria"
         android:layout_width="0dp"
-        android:layout_height="62dp"
+        android:layout_height="64dp"
         android:background="@color/off_white_quente"
-        android:gravity="center"
-        android:orientation="horizontal"
+        app:itemIconTint="@color/terracota_marrom"
+        app:itemTextColor="@color/terracota_marrom"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_bottom_navigation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <ImageView
-            android:id="@+id/menuHomeCategoria"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_weight="1"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_home"
-            app:tint="@color/dourado_envelhecido" />
-
-        <ImageView
-            android:id="@+id/menuFavoritosCategoria"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_weight="1"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_heart_border"
-            app:tint="@color/texto_secundario" />
-
-        <ImageView
-            android:id="@+id/menuCarrinhoCategoria"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_weight="1"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_cart"
-            app:tint="@color/texto_secundario" />
-
-        <ImageView
-            android:id="@+id/menuContaCategoria"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_weight="1"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_user"
-            app:tint="@color/texto_secundario" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
