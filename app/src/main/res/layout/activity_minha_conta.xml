@@ -26,7 +26,6 @@
             android:background="@color/conta_fundo_topo"
             android:orientation="vertical">
 
-            <!-- CABEÇALHO -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
@@ -75,7 +74,6 @@
 
                 </LinearLayout>
 
-                <!-- PERFIL -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
@@ -85,35 +83,33 @@
 
                     <FrameLayout
                         android:id="@+id/btnTrocarFoto"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
                         android:clickable="true"
                         android:focusable="true">
 
-                        <FrameLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/fundo_avatar_conta">
-
                             <ImageView
                                 android:id="@+id/imgPerfilConta"
-                                android:layout_width="34dp"
-                                android:layout_height="34dp"
+                                android:layout_width="52dp"
+                                android:layout_height="52dp"
                                 android:layout_gravity="center"
+                                android:contentDescription="@null"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/ic_user"
-                                app:tint="@color/verde_profundo" />
+                                android:src="@drawable/ic_user" />
+
+                            <ImageView
+                                android:id="@+id/imgEditarFoto"
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="bottom|end"
+                                android:background="@drawable/fundo_circulo_claro"
+                                android:contentDescription="@null"
+                                android:padding="3dp"
+                                android:src="@drawable/ic_edit"
+                                app:tint="@color/terracota_marrom" />
+
                         </FrameLayout>
 
-                        <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:layout_gravity="bottom|end"
-                            android:background="@drawable/fundo_circulo_claro"
-                            android:padding="3dp"
-                            android:src="@drawable/ic_edit"
-                            app:tint="@color/terracota_marrom" />
-                    </FrameLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -129,7 +125,7 @@
                             android:textColor="@color/marrom_quase_preto"
                             android:textSize="13sp"
                             android:textStyle="bold"
-                            tools:text="Nome do Usuário" />
+                            tools:text="Nome do usuário" />
 
                         <TextView
                             android:id="@+id/txtEmailUsuario"
@@ -140,12 +136,13 @@
                             android:textColor="@color/bege_acinzentado"
                             android:textSize="10sp"
                             tools:text="usuario@email.com" />
+
                     </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>
 
-            <!-- CARD -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -156,7 +153,6 @@
                 android:paddingEnd="24dp"
                 android:paddingBottom="28dp">
 
-                <!-- ABAS -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="18dp"
@@ -227,7 +223,6 @@
                     android:textSize="12sp"
                     android:textStyle="bold" />
 
-                <!-- NOME -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -253,9 +248,8 @@
                     android:textColor="@color/conta_texto_input"
                     android:textColorHint="@color/texto_secundario"
                     android:textSize="10sp"
-                    tools:text="Camila Silva Alves" />
+                    tools:text="Nome completo" />
 
-                <!-- CPF / RG -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -293,7 +287,7 @@
                             android:textColor="@color/conta_texto_input"
                             android:textColorHint="@color/texto_secundario"
                             android:textSize="10sp"
-                            tools:text="854.009.163-17" />
+                            tools:text="000.000.000-00" />
 
                     </LinearLayout>
 
@@ -331,13 +325,12 @@
                             android:textColor="@color/conta_texto_input"
                             android:textColorHint="@color/texto_secundario"
                             android:textSize="10sp"
-                            tools:text="854.009.163-17" />
+                            tools:text="00.000.000-0" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <!-- SEXO / DATA -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -413,13 +406,12 @@
                             android:textColor="@color/conta_texto_input"
                             android:textColorHint="@color/texto_secundario"
                             android:textSize="10sp"
-                            tools:text="02/06/1982" />
+                            tools:text="01/01/2000" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <!-- TELEFONES -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -457,7 +449,7 @@
                             android:textColor="@color/conta_texto_input"
                             android:textColorHint="@color/texto_secundario"
                             android:textSize="10sp"
-                            tools:text="(98) 2568-9916" />
+                            tools:text="(00) 00000-0000" />
 
                     </LinearLayout>
 
@@ -494,13 +486,13 @@
                             android:paddingEnd="8dp"
                             android:textColor="@color/conta_texto_input"
                             android:textColorHint="@color/texto_secundario"
-                            android:textSize="10sp" />
+                            android:textSize="10sp"
+                            tools:text="(00) 00000-0000" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <!-- ENDEREÇO -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -536,7 +528,7 @@
                     android:textColor="@color/conta_texto_input"
                     android:textColorHint="@color/texto_secundario"
                     android:textSize="10sp"
-                    tools:text="65040-101" />
+                    tools:text="00000-000" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -563,7 +555,7 @@
                     android:textColor="@color/conta_texto_input"
                     android:textColorHint="@color/texto_secundario"
                     android:textSize="10sp"
-                    tools:text="Av. Silva Jardim" />
+                    tools:text="Rua exemplo, 123" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnSalvarPerfil"
@@ -582,7 +574,6 @@
 
     </ScrollView>
 
-    <!-- MENU INFERIOR -->
     <LinearLayout
         android:id="@+id/menuInferiorConta"
         android:layout_width="0dp"

@@ -10,6 +10,7 @@ import com.example.belleza.model.Produto
 import com.example.belleza.model.Usuario
 import com.example.belleza.repository.LojaRepository
 import kotlinx.coroutines.launch
+import android.net.Uri
 
 class LojaViewModel(private val repositorio: LojaRepository) : ViewModel() {
 
@@ -30,6 +31,9 @@ class LojaViewModel(private val repositorio: LojaRepository) : ViewModel() {
 
     private val _statusOperacao = MutableLiveData<Boolean>()
     val statusOperacao: LiveData<Boolean> = _statusOperacao
+
+    private val _mensagemOperacao = MutableLiveData<String>()
+    val mensagemOperacao: LiveData<String> = _mensagemOperacao
 
     fun carregarProdutos() {
         viewModelScope.launch {
@@ -55,10 +59,15 @@ class LojaViewModel(private val repositorio: LojaRepository) : ViewModel() {
         }
     }
 
-    fun adicionarAoCarrinho(produto: Produto) {
+    fun adicionarAoCarrinho(produto: Produto, quantidade: Int = 1) {
         viewModelScope.launch {
             _estaCarregando.value = true
-            val sucesso = repositorio.adicionarProdutoAoCarrinho(produto)
+
+            val sucesso = repositorio.adicionarProdutoAoCarrinho(
+                produto = produto,
+                quantidadeAdicionada = quantidade
+            )
+
             _statusOperacao.value = sucesso
 
             if (sucesso) {
@@ -136,6 +145,25 @@ class LojaViewModel(private val repositorio: LojaRepository) : ViewModel() {
 
             if (sucesso) {
                 _perfilUsuario.value = usuario
+            }
+
+            _estaCarregando.value = false
+        }
+    }
+
+    fun atualizarFotoPerfil(uriFoto: Uri) {
+        viewModelScope.launch {
+            _estaCarregando.value = true
+
+            val resultado = repositorio.atualizarFotoPerfil(uriFoto)
+
+            if (resultado == "OK") {
+                _statusOperacao.value = true
+                _mensagemOperacao.value = "Foto atualizada com sucesso"
+                carregarPerfil()
+            } else {
+                _statusOperacao.value = false
+                _mensagemOperacao.value = resultado
             }
 
             _estaCarregando.value = false

@@ -62,7 +62,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun configurarViewModel() {
         val banco = BancoDeDadosApp.obterBancoDeDados(this)
-        val repositorio = LojaRepository(banco.favoritoDao())
+        val repositorio = LojaRepository(banco.favoritoDao(), applicationContext)
         val factory = LojaViewModelFactory(repositorio)
         viewModel = ViewModelProvider(this, factory)[LojaViewModel::class.java]
 

@@ -13,5 +13,6 @@ data class Usuario(
     val endereco: String = "",
     val bairro: String = "",
     val complemento: String = "",
-    val fotoUrl: String = ""
+    val fotoUrl: String = "",
+    val fotoBase64: String = ""
 )

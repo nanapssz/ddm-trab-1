@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardItemCarrinho"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="14dp"
+    android:background="@drawable/fundo_item_carrinho"
+    android:gravity="center_vertical"
+    android:minHeight="66dp"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/imgProdutoCarrinho"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="@color/off_white_quente"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/quad_produto_01_corretivo_liquido_melu" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtNomeProdutoCarrinho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:textColor="@color/marrom_quase_preto"
+            android:textSize="12sp"
+            tools:text="Corretivo Líquido Alta Cobertura" />
+
+        <TextView
+            android:id="@+id/txtPrecoProdutoCarrinho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/dourado_envelhecido"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            tools:text="R$ 59,90" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btnMenosCarrinho"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@drawable/fundo_qtd_carrinho"
+            android:gravity="center"
+            android:text="−"
+            android:textColor="@color/marrom_quase_preto"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtQuantidadeCarrinho"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/marrom_quase_preto"
+            android:textSize="13sp"
+            tools:text="2" />
+
+        <TextView
+            android:id="@+id/btnMaisCarrinho"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@drawable/fundo_qtd_carrinho"
+            android:gravity="center"
+            android:text="+"
+            android:textColor="@color/marrom_quase_preto"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

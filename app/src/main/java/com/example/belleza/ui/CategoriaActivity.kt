@@ -61,7 +61,7 @@ class CategoriaActivity : AppCompatActivity() {
 
     private fun iniciarViewModel() {
         val banco = BancoDeDadosApp.obterBancoDeDados(this)
-        val repositorio = LojaRepository(banco.favoritoDao())
+        val repositorio = LojaRepository(banco.favoritoDao(), applicationContext)
         val factory = LojaViewModelFactory(repositorio)
 
         viewModel = ViewModelProvider(this, factory)[LojaViewModel::class.java]
@@ -252,7 +252,7 @@ class CategoriaActivity : AppCompatActivity() {
 
     private fun abrirTelaSeExistir(nomeClasse: String) {
         try {
-            val classe = Class.forName("com.example.belleza.$nomeClasse")
+            val classe = Class.forName("com.example.belleza.ui.$nomeClasse")
             startActivity(Intent(this, classe))
         } catch (e: ClassNotFoundException) {
             Toast.makeText(this, "Tela ainda não criada", Toast.LENGTH_SHORT).show()

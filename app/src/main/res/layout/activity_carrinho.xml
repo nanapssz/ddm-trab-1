@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -45,6 +46,7 @@
                     app:tint="@color/marrom_quase_preto" />
 
                 <TextView
+                    android:id="@+id/txtTituloCarrinho"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -60,292 +62,27 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/cardItem1"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerCarrinho"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:background="@drawable/fundo_item_carrinho"
-                android:gravity="center_vertical"
-                android:minHeight="66dp"
-                android:orientation="horizontal"
-                android:padding="8dp">
-
-                <ImageView
-                    android:id="@+id/imgProduto1"
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:background="@color/off_white_quente"
-                    android:contentDescription="@null"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/quad_produto_01_corretivo_liquido_melu" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:maxLines="2"
-                        android:text="Corretivo Líquido Alta Cobertura"
-                        android:textColor="@color/marrom_quase_preto"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="R$ 79,90"
-                        android:textColor="@color/bege_acinzentado"
-                        android:textSize="11sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="R$ 59,90"
-                        android:textColor="@color/dourado_envelhecido"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/btnMenos1"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:background="@drawable/fundo_qtd_carrinho"
-                        android:gravity="center"
-                        android:text="−"
-                        android:textColor="@color/marrom_quase_preto"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtQtd1"
-                        android:layout_width="18dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="2"
-                        android:textColor="@color/marrom_quase_preto"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:id="@+id/btnMais1"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:background="@drawable/fundo_qtd_carrinho"
-                        android:gravity="center"
-                        android:text="+"
-                        android:textColor="@color/marrom_quase_preto"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/cardItem2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/fundo_item_carrinho"
-                android:gravity="center_vertical"
-                android:minHeight="66dp"
-                android:orientation="horizontal"
-                android:padding="8dp">
-
-                <ImageView
-                    android:id="@+id/imgProduto2"
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:background="@color/off_white_quente"
-                    android:contentDescription="@null"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/quad_produto_19_serum_facial_melu" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:maxLines="2"
-                        android:text="Cleansing Oil Purifying Glow"
-                        android:textColor="@color/marrom_quase_preto"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="R$ 99,90"
-                        android:textColor="@color/bege_acinzentado"
-                        android:textSize="11sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="R$ 79,90"
-                        android:textColor="@color/dourado_envelhecido"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/btnMenos2"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:background="@drawable/fundo_qtd_carrinho"
-                        android:gravity="center"
-                        android:text="−"
-                        android:textColor="@color/marrom_quase_preto"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtQtd2"
-                        android:layout_width="18dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="1"
-                        android:textColor="@color/marrom_quase_preto"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:id="@+id/btnMais2"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:background="@drawable/fundo_qtd_carrinho"
-                        android:gravity="center"
-                        android:text="+"
-                        android:textColor="@color/marrom_quase_preto"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/cardItem3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/fundo_item_carrinho"
-                android:gravity="center_vertical"
-                android:minHeight="66dp"
-                android:orientation="horizontal"
-                android:padding="8dp">
-
-                <ImageView
-                    android:id="@+id/imgProduto3"
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:background="@color/off_white_quente"
-                    android:contentDescription="@null"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/quad_produto_29_batom_maybelline_vinyl_ink" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:maxLines="2"
-                        android:text="Batom Matte Rose Elegance"
-                        android:textColor="@color/marrom_quase_preto"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="R$ 129,90"
-                        android:textColor="@color/bege_acinzentado"
-                        android:textSize="11sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="R$ 79,90"
-                        android:textColor="@color/dourado_envelhecido"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/btnMenos3"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:background="@drawable/fundo_qtd_carrinho"
-                        android:gravity="center"
-                        android:text="−"
-                        android:textColor="@color/marrom_quase_preto"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtQtd3"
-                        android:layout_width="18dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="1"
-                        android:textColor="@color/marrom_quase_preto"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:id="@+id/btnMais3"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:background="@drawable/fundo_qtd_carrinho"
-                        android:gravity="center"
-                        android:text="+"
-                        android:textColor="@color/marrom_quase_preto"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </LinearLayout>
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@layout/item_carrinho" />
 
             <TextView
+                android:id="@+id/txtCarrinhoVazio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:gravity="center"
+                android:text="Seu carrinho está vazio"
+                android:textColor="@color/texto_secundario"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/txtTituloResumo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
@@ -355,6 +92,7 @@
                 android:textStyle="bold" />
 
             <LinearLayout
+                android:id="@+id/linhaProdutosResumo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -372,13 +110,14 @@
                     android:id="@+id/txtSubtotalProdutos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="R$279,60"
+                    android:text="R$ 0,00"
                     android:textColor="@color/marrom_quase_preto"
                     android:textSize="13sp" />
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linhaEntregaResumo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -396,19 +135,21 @@
                     android:id="@+id/txtEntrega"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="R$15,59"
+                    android:text="R$ 0,00"
                     android:textColor="@color/marrom_quase_preto"
                     android:textSize="13sp" />
 
             </LinearLayout>
 
             <View
+                android:id="@+id/dividerResumo"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="14dp"
                 android:background="@color/bordas_suaves" />
 
             <LinearLayout
+                android:id="@+id/linhaTotalResumo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
@@ -427,7 +168,7 @@
                     android:id="@+id/txtTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="R$295,19"
+                    android:text="R$ 0,00"
                     android:textColor="@color/marrom_quase_preto"
                     android:textSize="14sp"
                     android:textStyle="bold" />
