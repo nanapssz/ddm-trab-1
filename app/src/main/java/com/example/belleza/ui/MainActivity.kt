@@ -25,8 +25,10 @@ class MainActivity : AppCompatActivity() {
 
         configurarBottomNavigation()
 
-        val abaRecebida = intent.getStringExtra(EXTRA_ABA) ?: ABA_HOME
-        abrirAbaInicial(abaRecebida)
+        if (savedInstanceState == null) {
+            val abaRecebida = intent.getStringExtra(EXTRA_ABA) ?: ABA_HOME
+            abrirAbaInicial(abaRecebida)
+        }
     }
 
     private fun configurarBottomNavigation() {
@@ -35,6 +37,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home -> {
                     trocarFragment(HomeFragment())
                     true
+                }
+
+                R.id.nav_favoritos -> {
+                    ToastFavoritos()
+                    false
                 }
 
                 R.id.nav_carrinho -> {
@@ -54,9 +61,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun abrirAbaInicial(aba: String) {
         when (aba) {
-            ABA_CARRINHO -> binding.bottomNavigation.selectedItemId = R.id.nav_carrinho
-            ABA_CONTA -> binding.bottomNavigation.selectedItemId = R.id.nav_conta
-            else -> binding.bottomNavigation.selectedItemId = R.id.nav_home
+            ABA_CARRINHO -> {
+                binding.bottomNavigation.selectedItemId = R.id.nav_carrinho
+                trocarFragment(CarrinhoFragment())
+            }
+
+            ABA_CONTA -> {
+                binding.bottomNavigation.selectedItemId = R.id.nav_conta
+                trocarFragment(MinhaContaFragment())
+            }
+
+            else -> {
+                binding.bottomNavigation.selectedItemId = R.id.nav_home
+                trocarFragment(HomeFragment())
+            }
         }
     }
 
@@ -65,5 +83,13 @@ class MainActivity : AppCompatActivity() {
             .beginTransaction()
             .replace(R.id.fragmentContainer, fragment)
             .commit()
+    }
+
+    private fun ToastFavoritos() {
+        android.widget.Toast.makeText(
+            this,
+            "Favoritos em desenvolvimento",
+            android.widget.Toast.LENGTH_SHORT
+        ).show()
     }
 }

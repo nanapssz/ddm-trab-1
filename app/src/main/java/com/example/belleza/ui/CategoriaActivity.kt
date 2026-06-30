@@ -121,8 +121,6 @@ class CategoriaActivity : AppCompatActivity() {
             Toast.makeText(this, "Filtro em desenvolvimento", Toast.LENGTH_SHORT).show()
         }
 
-        binding.bottomNavigationCategoria.selectedItemId = R.id.nav_home
-
         binding.bottomNavigationCategoria.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
@@ -131,6 +129,11 @@ class CategoriaActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                     true
+                }
+
+                R.id.nav_favoritos -> {
+                    Toast.makeText(this, "Favoritos em desenvolvimento", Toast.LENGTH_SHORT).show()
+                    false
                 }
 
                 R.id.nav_carrinho -> {
