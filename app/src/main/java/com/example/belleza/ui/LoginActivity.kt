@@ -39,12 +39,10 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, senha)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Login Sucesso
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
-                    // Login Falhou (ex: usuário não existe ou senha errada)
                     val erro = task.exception?.message ?: "E-mail ou senha incorretos. Tente novamente."
                     Toast.makeText(this, "Erro: $erro", Toast.LENGTH_LONG).show()
                 }
