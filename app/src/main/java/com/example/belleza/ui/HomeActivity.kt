@@ -21,6 +21,8 @@ import com.example.belleza.repository.LojaRepository
 import com.example.belleza.viewmodel.LojaViewModel
 import com.example.belleza.viewmodel.LojaViewModelFactory
 import com.google.firebase.messaging.FirebaseMessaging
+import android.graphics.BitmapFactory
+import android.util.Base64
 
 class HomeActivity : AppCompatActivity() {
 
@@ -90,12 +92,29 @@ class HomeActivity : AppCompatActivity() {
 
         viewModel.perfilUsuario.observe(this) { usuario ->
             usuario?.let {
-                if (!it.fotoUrl.isNullOrEmpty()) {
+                binding.imgPerfilHome.imageTintList = null
+
+                if (it.fotoBase64.isNotEmpty()) {
+                    val bytes = Base64.decode(it.fotoBase64, Base64.DEFAULT)
+                    val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+
+                    Glide.with(this)
+                        .load(bitmap)
+                        .placeholder(R.drawable.ic_user)
+                        .error(R.drawable.ic_user)
+                        .circleCrop()
+                        .into(binding.imgPerfilHome)
+
+                } else if (it.fotoUrl.isNotEmpty()) {
                     Glide.with(this)
                         .load(it.fotoUrl)
                         .placeholder(R.drawable.ic_user)
+                        .error(R.drawable.ic_user)
                         .circleCrop()
-                        .into(binding.imgPerfilHome) // Certifique-se que este ID existe no activity_home.xml
+                        .into(binding.imgPerfilHome)
+
+                } else {
+                    binding.imgPerfilHome.setImageResource(R.drawable.ic_user)
                 }
             }
         }
